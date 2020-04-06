@@ -10,10 +10,21 @@ namespace Test_Mot_Chut
 {
      public partial class FormDrugStore : Form
      {
+          BindingSource loaiVaxinList = new BindingSource();
           public FormDrugStore()
           {
                InitializeComponent();
           }
+
+          private void FormDrugStore_Load(object sender, EventArgs e)
+          {
+               dataListLoai.DataSource = loaiVaxinList;
+               updataTreeView();
+               loadLoaiVacxin();
+               AddLoaiVaxinBinding();
+          }
+
+
           private void btnClose_Click(object sender, EventArgs e)
           {
                this.Close();
@@ -45,18 +56,20 @@ namespace Test_Mot_Chut
                return DataProvider.Instance.ExcuteQuery(query, new object[] { t1 });
 
           } 
+
+          public void loadLoaiVacxin()
+          {
+               loaiVaxinList.DataSource = LoaiVacxinDAO.Instance.getDataLoaiVacxin();
+          }
+
+          public void AddLoaiVaxinBinding()
+          {
+               txtTenLoai.DataBindings.Add(new Binding("Text", dataListLoai.DataSource, "TenLoai"));
+               txtMaLoai.DataBindings.Add(new Binding("Text", dataListLoai.DataSource, "MaLoai"));
+          }
           #endregion
 
           #region Events
-
-          
-          private void FormDrugStore_Load(object sender, EventArgs e)
-          {
-               updataTreeView();
-          }
-         
-
-
           private void nhomThuoc_AfterSelect_1(object sender, TreeViewEventArgs e)
           {
 
@@ -85,6 +98,11 @@ namespace Test_Mot_Chut
           private void btnThongke_Click(object sender, EventArgs e)
           {
                dataThongKe.DataSource = getPhieuByDate(date.Value);
+          }
+
+          private void btnXemLoai_Click(object sender, EventArgs e)
+          {
+               loadLoaiVacxin();
           }
      }
      #endregion
