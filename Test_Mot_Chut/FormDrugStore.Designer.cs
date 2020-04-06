@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
                this.btnClose = new System.Windows.Forms.Label();
                this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
                this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
@@ -96,16 +99,15 @@
                this.splitContainer3 = new System.Windows.Forms.SplitContainer();
                this.panel5 = new System.Windows.Forms.Panel();
                this.panel7 = new System.Windows.Forms.Panel();
-               this.button5 = new System.Windows.Forms.Button();
+               this.btnXemLoai = new System.Windows.Forms.Button();
                this.button4 = new System.Windows.Forms.Button();
                this.button3 = new System.Windows.Forms.Button();
                this.button2 = new System.Windows.Forms.Button();
-               this.dataGridView2 = new System.Windows.Forms.DataGridView();
                this.panel6 = new System.Windows.Forms.Panel();
                this.panel8 = new System.Windows.Forms.Panel();
-               this.textBox3 = new System.Windows.Forms.TextBox();
+               this.txtTenLoai = new System.Windows.Forms.TextBox();
                this.label8 = new System.Windows.Forms.Label();
-               this.textBox2 = new System.Windows.Forms.TextBox();
+               this.txtMaLoai = new System.Windows.Forms.TextBox();
                this.label7 = new System.Windows.Forms.Label();
                this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
                this.panel9 = new System.Windows.Forms.Panel();
@@ -125,6 +127,8 @@
                this.label9 = new System.Windows.Forms.Label();
                this.label1 = new System.Windows.Forms.Label();
                this.label6 = new System.Windows.Forms.Label();
+               this.panel19 = new System.Windows.Forms.Panel();
+               this.dataListLoai = new MetroFramework.Controls.MetroGrid();
                this.metroTabControl1.SuspendLayout();
                this.metroTabPage1.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -165,7 +169,6 @@
                this.splitContainer3.SuspendLayout();
                this.panel5.SuspendLayout();
                this.panel7.SuspendLayout();
-               ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
                this.panel6.SuspendLayout();
                this.panel8.SuspendLayout();
                this.metroTabPage5.SuspendLayout();
@@ -179,6 +182,8 @@
                ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
                this.panel12.SuspendLayout();
                this.panel13.SuspendLayout();
+               this.panel19.SuspendLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.dataListLoai)).BeginInit();
                this.SuspendLayout();
                // 
                // btnClose
@@ -204,7 +209,7 @@
                this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
                this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
                this.metroTabControl1.Name = "metroTabControl1";
-               this.metroTabControl1.SelectedIndex = 1;
+               this.metroTabControl1.SelectedIndex = 3;
                this.metroTabControl1.Size = new System.Drawing.Size(1118, 526);
                this.metroTabControl1.TabIndex = 6;
                this.metroTabControl1.UseSelectable = true;
@@ -575,7 +580,7 @@
                this.date.Dock = System.Windows.Forms.DockStyle.Right;
                this.date.FontSize = MetroFramework.MetroDateTimeSize.Tall;
                this.date.Location = new System.Drawing.Point(910, 0);
-               this.date.MinimumSize = new System.Drawing.Size(0, 35);
+               this.date.MinimumSize = new System.Drawing.Size(4, 35);
                this.date.Name = "date";
                this.date.Size = new System.Drawing.Size(200, 35);
                this.date.Style = MetroFramework.MetroColorStyle.Black;
@@ -931,8 +936,8 @@
                // 
                // panel5
                // 
+               this.panel5.Controls.Add(this.panel19);
                this.panel5.Controls.Add(this.panel7);
-               this.panel5.Controls.Add(this.dataGridView2);
                this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
                this.panel5.Location = new System.Drawing.Point(0, 0);
                this.panel5.Name = "panel5";
@@ -941,24 +946,25 @@
                // 
                // panel7
                // 
-               this.panel7.Controls.Add(this.button5);
+               this.panel7.Controls.Add(this.btnXemLoai);
                this.panel7.Controls.Add(this.button4);
                this.panel7.Controls.Add(this.button3);
                this.panel7.Controls.Add(this.button2);
                this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
                this.panel7.Location = new System.Drawing.Point(0, 0);
                this.panel7.Name = "panel7";
-               this.panel7.Size = new System.Drawing.Size(434, 100);
+               this.panel7.Size = new System.Drawing.Size(434, 110);
                this.panel7.TabIndex = 1;
                // 
-               // button5
+               // btnXemLoai
                // 
-               this.button5.Location = new System.Drawing.Point(301, 31);
-               this.button5.Name = "button5";
-               this.button5.Size = new System.Drawing.Size(75, 45);
-               this.button5.TabIndex = 3;
-               this.button5.Text = "Xem";
-               this.button5.UseVisualStyleBackColor = true;
+               this.btnXemLoai.Location = new System.Drawing.Point(301, 31);
+               this.btnXemLoai.Name = "btnXemLoai";
+               this.btnXemLoai.Size = new System.Drawing.Size(75, 45);
+               this.btnXemLoai.TabIndex = 3;
+               this.btnXemLoai.Text = "Xem";
+               this.btnXemLoai.UseVisualStyleBackColor = true;
+               this.btnXemLoai.Click += new System.EventHandler(this.btnXemLoai_Click);
                // 
                // button4
                // 
@@ -987,15 +993,6 @@
                this.button2.Text = "Thêm";
                this.button2.UseVisualStyleBackColor = true;
                // 
-               // dataGridView2
-               // 
-               this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-               this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-               this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-               this.dataGridView2.Name = "dataGridView2";
-               this.dataGridView2.Size = new System.Drawing.Size(434, 484);
-               this.dataGridView2.TabIndex = 0;
-               // 
                // panel6
                // 
                this.panel6.Controls.Add(this.panel8);
@@ -1007,9 +1004,9 @@
                // 
                // panel8
                // 
-               this.panel8.Controls.Add(this.textBox3);
+               this.panel8.Controls.Add(this.txtTenLoai);
                this.panel8.Controls.Add(this.label8);
-               this.panel8.Controls.Add(this.textBox2);
+               this.panel8.Controls.Add(this.txtMaLoai);
                this.panel8.Controls.Add(this.label7);
                this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
                this.panel8.Location = new System.Drawing.Point(0, 0);
@@ -1017,13 +1014,13 @@
                this.panel8.Size = new System.Drawing.Size(672, 178);
                this.panel8.TabIndex = 0;
                // 
-               // textBox3
+               // txtTenLoai
                // 
-               this.textBox3.Location = new System.Drawing.Point(155, 101);
-               this.textBox3.Multiline = true;
-               this.textBox3.Name = "textBox3";
-               this.textBox3.Size = new System.Drawing.Size(180, 25);
-               this.textBox3.TabIndex = 3;
+               this.txtTenLoai.Location = new System.Drawing.Point(155, 101);
+               this.txtTenLoai.Multiline = true;
+               this.txtTenLoai.Name = "txtTenLoai";
+               this.txtTenLoai.Size = new System.Drawing.Size(180, 25);
+               this.txtTenLoai.TabIndex = 3;
                // 
                // label8
                // 
@@ -1035,13 +1032,13 @@
                this.label8.TabIndex = 2;
                this.label8.Text = "Tên Loại";
                // 
-               // textBox2
+               // txtMaLoai
                // 
-               this.textBox2.Location = new System.Drawing.Point(155, 43);
-               this.textBox2.Multiline = true;
-               this.textBox2.Name = "textBox2";
-               this.textBox2.Size = new System.Drawing.Size(180, 25);
-               this.textBox2.TabIndex = 1;
+               this.txtMaLoai.Location = new System.Drawing.Point(155, 43);
+               this.txtMaLoai.Multiline = true;
+               this.txtMaLoai.Name = "txtMaLoai";
+               this.txtMaLoai.Size = new System.Drawing.Size(180, 25);
+               this.txtMaLoai.TabIndex = 1;
                // 
                // label7
                // 
@@ -1242,6 +1239,59 @@
                this.label6.TabIndex = 0;
                this.label6.Text = "Mã Vacxin:";
                // 
+               // panel19
+               // 
+               this.panel19.Controls.Add(this.dataListLoai);
+               this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
+               this.panel19.Location = new System.Drawing.Point(0, 110);
+               this.panel19.Name = "panel19";
+               this.panel19.Size = new System.Drawing.Size(434, 374);
+               this.panel19.TabIndex = 2;
+               // 
+               // dataListLoai
+               // 
+               this.dataListLoai.AllowUserToResizeRows = false;
+               this.dataListLoai.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+               this.dataListLoai.BorderStyle = System.Windows.Forms.BorderStyle.None;
+               this.dataListLoai.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+               this.dataListLoai.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+               dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+               dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+               dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+               dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+               dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+               dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+               this.dataListLoai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+               this.dataListLoai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+               dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+               dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+               dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+               dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+               dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+               dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+               this.dataListLoai.DefaultCellStyle = dataGridViewCellStyle2;
+               this.dataListLoai.Dock = System.Windows.Forms.DockStyle.Fill;
+               this.dataListLoai.EnableHeadersVisualStyles = false;
+               this.dataListLoai.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+               this.dataListLoai.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+               this.dataListLoai.Location = new System.Drawing.Point(0, 0);
+               this.dataListLoai.Name = "dataListLoai";
+               this.dataListLoai.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+               dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+               dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+               dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+               dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+               dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+               dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+               this.dataListLoai.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+               this.dataListLoai.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+               this.dataListLoai.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+               this.dataListLoai.Size = new System.Drawing.Size(434, 374);
+               this.dataListLoai.TabIndex = 0;
+               // 
                // FormDrugStore
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -1296,7 +1346,6 @@
                this.splitContainer3.ResumeLayout(false);
                this.panel5.ResumeLayout(false);
                this.panel7.ResumeLayout(false);
-               ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
                this.panel6.ResumeLayout(false);
                this.panel8.ResumeLayout(false);
                this.panel8.PerformLayout();
@@ -1312,6 +1361,8 @@
                this.panel12.ResumeLayout(false);
                this.panel13.ResumeLayout(false);
                this.panel13.PerformLayout();
+               this.panel19.ResumeLayout(false);
+               ((System.ComponentModel.ISupportInitialize)(this.dataListLoai)).EndInit();
                this.ResumeLayout(false);
                this.PerformLayout();
 
@@ -1345,16 +1396,15 @@
           private System.Windows.Forms.SplitContainer splitContainer3;
           private System.Windows.Forms.Panel panel5;
           private System.Windows.Forms.Panel panel7;
-          private System.Windows.Forms.Button button5;
+          private System.Windows.Forms.Button btnXemLoai;
           private System.Windows.Forms.Button button4;
           private System.Windows.Forms.Button button3;
           private System.Windows.Forms.Button button2;
-          private System.Windows.Forms.DataGridView dataGridView2;
           private System.Windows.Forms.Panel panel6;
           private System.Windows.Forms.Panel panel8;
-          private System.Windows.Forms.TextBox textBox2;
+          private System.Windows.Forms.TextBox txtMaLoai;
           private System.Windows.Forms.Label label7;
-          private System.Windows.Forms.TextBox textBox3;
+          private System.Windows.Forms.TextBox txtTenLoai;
           private System.Windows.Forms.Label label8;
           private System.Windows.Forms.ComboBox cboNhomThuoc;
           private System.Windows.Forms.TextBox txtXuatXu;
@@ -1415,5 +1465,7 @@
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroButton btnThongke;
         private MetroFramework.Controls.MetroDateTime date;
-    }
+          private System.Windows.Forms.Panel panel19;
+          private MetroFramework.Controls.MetroGrid dataListLoai;
+     }
 }
