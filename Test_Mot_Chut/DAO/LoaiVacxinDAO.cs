@@ -33,5 +33,10 @@ namespace Test_Mot_Chut.DAO
 
                return loaiVx;
           }
+
+          public DataTable getDataLoaiVacxin()
+          {
+               return DataProvider.Instance.ExcuteQuery("EXEC USP_GetLoai");
+          }
      }
 }
