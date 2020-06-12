@@ -10,6 +10,7 @@ namespace Test_Mot_Chut.DTO
      class LoaiVacxin
      {
           private String maLoai, tenLoai;
+          private object v;
 
           public string MaLoai { get => maLoai; set => maLoai = value; }
           public string TenLoai { get => tenLoai; set => tenLoai = value; }
@@ -24,6 +25,14 @@ namespace Test_Mot_Chut.DTO
           {
                this.maLoai = row["MaLoai"].ToString();
                this.tenLoai = row["TenLoai"].ToString();
-          } 
+          }
+
+          public LoaiVacxin(DataRowView row)
+          {
+               this.maLoai = row["MaLoai"].ToString();
+               this.tenLoai = row["TenLoai"].ToString();
+          }
+
+
      }
 }
