@@ -100,7 +100,7 @@ namespace Test_Mot_Chut.DAO
                     sqlConnect.Open();
 
                     SqlCommand command = new SqlCommand(query, sqlConnect);
-
+                command.
                     if (parameter != null)
                     {
                          string[] listPara = query.Split(' ');
